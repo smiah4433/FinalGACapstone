@@ -16,6 +16,18 @@ import CreateStudent from "./Components/create-student.component";
 import EditStudent from "./Components/edit-student.component";
 import StudentList from "./Components/student-list.component";
 
+let baseURL;
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:4000';
+} else {
+  // "https://fathomless-sierra-68956.herokuapp.com" in this case is the *API* url
+  baseURL = 'https://studentmanagement-frontend.herokuapp.com';
+}
+
+console.log('current base URL:', baseURL)
+
+
 // App Component
 const App = () => {
   return (
@@ -49,10 +61,10 @@ const App = () => {
               <div className="wrapper">
                 Welcome Students! Please Enroll!
                 <Routes>
-                  <Route path="/" element={<CreateStudent />} />
-                  <Route path="/create-student" element={<CreateStudent />} />
-                  <Route path="/edit-student/:id" element={<EditStudent />} />
-                  <Route path="/student-list" element={<StudentList />} />
+                  <Route path="/" element={<CreateStudent baseURL=baseURL} />} />
+                  <Route path="/create-student" element={<CreateStudent baseURL=baseURL} />} />
+                  <Route path="/edit-student/:id" element={<EditStudent baseURL=baseURL} />} />
+                  <Route path="/student-list" element={<StudentList baseURL=baseURL} />} />
                 </Routes>
               </div>
             </Col>

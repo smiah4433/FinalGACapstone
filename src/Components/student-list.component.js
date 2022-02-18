@@ -3,11 +3,13 @@ import axios from "axios";
 import { Table } from "react-bootstrap";
 import StudentTableRow from "./StudentTableRow";
 
-const StudentList = () => {
+
+
+const StudentList = (props) => {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/students")
+    axios.get(props.baseURL + "/students")
       .then(({ data }) => {
         setStudents(data);
       })

@@ -6,10 +6,10 @@ import axios from 'axios';
 import StudentForm from "./StudentForm";
 
 // CreateStudent Component
-const CreateStudent = () => {
+const CreateStudent = (props) => {
   const [formValues, setFormValues] = useState({ name: '', email: '', rollno: '' })
   // onSubmit handler
-  const onSubmit = studentObject => {axios.post('http://localhost:4000/students/', studentObject)
+  const onSubmit = studentObject => {axios.post(props.baseURL + '/students/', studentObject)
       .then(res => {
         if (res.status === 200)
           alert('Student successfully created')

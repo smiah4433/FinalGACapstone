@@ -6,8 +6,8 @@ import axios from "axios";
 const StudentTableRow = (props) => {
   const { _id, name, email, rollno } = props.obj;
 
-  const deleteStudent = () => {
-    axios.delete("http://localhost:4000/students/delete-student/" + _id)
+  const deleteStudent = (props) => {
+    axios.delete(props.baseURL + "/students/delete-student/" + _id)
       .then((res) => {
         if (res.status === 200) {
           alert("Student successfully deleted");
