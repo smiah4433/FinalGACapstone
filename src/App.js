@@ -16,14 +16,14 @@ import CreateStudent from "./Components/create-student.component";
 import EditStudent from "./Components/edit-student.component";
 import StudentList from "./Components/student-list.component";
 
-let baseURL;
+let baseURL = 'https://studentmanagement-frontend.herokuapp.com';
 
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:4000';
-} else {
-  // "https://fathomless-sierra-68956.herokuapp.com" in this case is the *API* url
-  baseURL = 'https://studentmanagement-frontend.herokuapp.com';
-}
+// if (process.env.NODE_ENV === 'development') {
+//   baseURL = 'http://localhost:4000';
+// } else {
+//   // "https://fathomless-sierra-68956.herokuapp.com" in this case is the *API* url
+//   baseURL = 'https://studentmanagement-frontend.herokuapp.com';
+// }
 
 console.log('current base URL:', baseURL)
 
