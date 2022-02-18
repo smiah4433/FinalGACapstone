@@ -16,7 +16,7 @@ import CreateStudent from "./Components/create-student.component";
 import EditStudent from "./Components/edit-student.component";
 import StudentList from "./Components/student-list.component";
 
-let baseURL = 'https://studentmanagement-frontend.herokuapp.com';
+let baseURL = 'https://ga-capstone-backend.herokuapp.com';
 
 // if (process.env.NODE_ENV === 'development') {
 //   baseURL = 'http://localhost:4000';
