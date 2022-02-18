@@ -3,6 +3,9 @@ let mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
 let dbConfig = require('./database/db');
+require('dotenv').config();
+const PORT = process.env.PORT
+const MONGODB_URI = process.env.MONGODB_URI
 
 // Express Route
 const studentRoute = require('../backend/routes/student.route')
@@ -21,8 +24,39 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(cors());
+
+const whiteList = ['http://localhost:3000', 'https://studentmanagement-frontend.herokuapp.com/create-student']
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedURLs.indexOf(origin) >= 0) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+const SESSION_SECRET = process.env
+app.set('trust proxy, 1')
+
+app.use(session({
+  secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoDBStore({
+    uri: process.env.PORT,
+    collection: 'mySessions'
+  }),
+  cookie: {
+    sameSite: 'none',
+    secure: true
+  }
+}))
+
+
 app.use('/students', studentRoute)
+
 
 
 // PORT
