@@ -61,10 +61,10 @@ const App = () => {
               <div className="wrapper">
                 Welcome Students! Please Enroll!
                 <Routes>
-                  <Route path="/" element={<CreateStudent baseURL=baseURL} />} />
-                  <Route path="/create-student" element={<CreateStudent baseURL=baseURL} />} />
-                  <Route path="/edit-student/:id" element={<EditStudent baseURL=baseURL} />} />
-                  <Route path="/student-list" element={<StudentList baseURL=baseURL} />} />
+                  <Route path="/" element={<CreateStudent baseURL={baseURL} />} />
+                  <Route path="/create-student" element={<CreateStudent baseURL={baseURL} />} />
+                  <Route path="/edit-student/:id" element={<EditStudent baseURL={baseURL} />} />
+                  <Route path="/student-list" element={<StudentList baseURL={baseURL} />} />
                 </Routes>
               </div>
             </Col>
